@@ -1,0 +1,34 @@
+<p>user-list</p>
+<button class="btn btn-outline-success mb-3" routerLink="/manage/user/new">New</button>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">User name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Valid</th>
+    <th scope="col">isActivated</th>
+    <th scope="col">SuperAdmin</th>
+    <th scope="col">GroupAdmin</th>
+    <th scope="col">GroupAssist</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <th>{{user.username}}</th>
+    <td>{{user.email}}</td>
+    <td>{{user.valid}}</td>
+    <td>{{user.isActivated}}</td>
+    <td>{{user.ofSuperAdminInRole}}</td>
+    <td>{{user.ofGroupAdminInRole}}</td>
+    <td>{{user.ofGroupAssistInRole}}</td>
+    <td>
+<!--      <a class="btn btn-primary" routerLink="/manage/user/view/{{user.username}}">View</a>-->
+      <a class="btn btn-outline-primary mr-2" routerLink="/manage/user/edit/{{user.username}}">manage</a>
+      <a class="btn btn-outline-danger" (click)="onDelete(user.username)">Delete</a>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
